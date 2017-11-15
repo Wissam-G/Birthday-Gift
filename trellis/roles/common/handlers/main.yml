@@ -1,0 +1,5 @@
+---
+- name: disable temporary challenge sites
+  include: disable_challenge_sites.yml
+
+- include: reload_nginx.yml

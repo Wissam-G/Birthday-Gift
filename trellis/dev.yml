@@ -1,0 +1,15 @@
+---
+- name: "Install Webserver"
+  hosts: web:&development
+  become: yes
+  remote_user: vagrant
+
+  roles:
+    - { role: common, tags: [common] }
+    - { role: fail2ban, tags: [fail2ban] }
+    - { role: ferm, tags: [ferm] }
+    - { role: ntp, tags: [ntp] }
+    - { role: sshd, tags: [sshd] }
+    - { role: nginx, tags: [nginx] }
+    - { role: logrotate, tags: [logrotate] }
+    - { role: app-setup, tags: [app, app-setup, letsencrypt] }
